@@ -1,6 +1,5 @@
 {
   "format": "YYYY-MM-DD_dddd",
   "folder": "📌 每日记录",
-  "template": "Templates/daily-template",
-  "autorun": true
+  "template": "Templates/daily-template"
 }
