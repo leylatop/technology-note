@@ -1,10 +1,7 @@
 import type * as Preset from '@docusaurus/preset-classic'
 import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
-import social from './data/social'
 
-const beian = '豫ICP备2024078050号-1'
-const beian1 = '豫公网安备41010502006082'
 
 const config: Config = {
   title: 'LeylaTop',
@@ -17,7 +14,7 @@ const config: Config = {
   customFields: {
     bio: '道阻且长，行则将至',
     description:
-      '是一个由Leyla创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
+      '是一个由Leyla创建的技术笔记网站，主要记录编程开发知识，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
   },
   themeConfig: {
     // announcementBar: {
@@ -51,80 +48,7 @@ const config: Config = {
         srcDark: '/img/logo.svg',
       },
       hideOnScroll: true,
-      items: [
-        { label: '博客', position: 'right', to: 'blog' },
-        { label: '笔记', position: 'right', to: 'docs/note' },
-        // { label: '项目', position: 'right', to: 'project' },
-        // { label: '友链', position: 'right', to: 'friends' },
-        { label: '工具', position: 'right', to: 'tool' },
-        { label: '关于', position: 'right', to: 'about' },
-        // {
-        //   label: '更多',
-        //   position: 'right',
-        //   items: [
-        //     { label: '归档', to: 'blog/archive' },
-        //     { label: '笔记', to: 'docs/note' },
-        //     { label: '工具推荐', to: 'docs/tools' },
-        //   ],
-        // },
-        // {
-        //   type: 'localeDropdown',
-        //   position: 'right',
-        // },
-      ],
-    },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: '学习',
-          items: [
-            { label: '博客', to: 'blog' },
-            // { label: '归档', to: 'blog/archive' },
-            { label: '技术笔记', to: 'docs/note' },
-            // { label: '实战项目', to: 'project' },
-          ],
-        },
-        {
-          title: '社交媒体',
-          items: [
-            { label: '关于我', to: '/about' },
-            { label: 'GitHub', href: social.github.href },
-            // { label: 'Twitter', href: social.x.href },
-            // { label: '掘金', href: social.juejin.href },
-            // { label: 'Discord', href: social.discord.href },
-          ],
-        },
-        // {
-        //   title: '网站',
-        //   items: [
-        //     { label: 'js反混淆', to: 'https://js-deobfuscator.leyla.cn' },
-        //     { label: 'cyberChef', to: 'https://gchq.github.io/CyberChef' },
-        //     { label: 'api服务', to: 'https://api.leyla.cn' },
-        //     { label: '便民服务', to: 'https://service.leyla.cn' },
-        //     { label: '站点监控', to: 'https://uptime.leyla.cn' },
-        //   ],
-        // },
-        {
-          title: '更多',
-          items: [
-            { label: '友链', position: 'right', to: 'friends' },
-            {
-              html: `
-                <a href="https://docusaurus.io" target="_blank" rel="noreferrer noopener">
-                  <img src="/img/buildwith.png" alt="build with docusaurus" width="120" height="50"/>
-                </a>
-                `,
-            },
-          ],
-        },
-      ],
-      copyright: `
-        <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
-        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${
-          beian1.match(/\d+/)?.[0]
-        }" >${beian1}</a></p>
-        `,
+      // items: [{ label: '笔记', position: 'right', to: '/' }],
     },
     algolia: {
       appId: '6KIX5EFJP3',
@@ -177,9 +101,11 @@ const config: Config = {
       {
         docs: {
           path: 'docs',
+          routeBasePath: '/',
           sidebarPath: 'sidebars.ts',
         },
         blog: false,
+        pages: false,
         theme: {
           customCss: ['./src/css/custom.css', './src/css/tweet-theme.css'],
         },
@@ -217,28 +143,6 @@ const config: Config = {
     //     mode: 'auto',
     //   },
     // ],
-    [
-      './src/plugin/plugin-content-blog', // 为了实现全局 blog 数据，必须改写 plugin-content-blog 插件
-      {
-        path: 'blog',
-        editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
-          `https://github.com/leylatop/blog/edit/main/${blogDirPath}/${blogPath}`,
-        editLocalizedFiles: false,
-        blogDescription: '记录人生路程',
-        blogSidebarCount: 10,
-        blogSidebarTitle: '博文',
-        postsPerPage: 12,
-        showReadingTime: true,
-        readingTime: ({ content, frontMatter, defaultReadingTime }) =>
-          defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
-        // feedOptions: {
-        //   type: 'all',
-        //   title: '愧怍',
-        //   description: 'feedId:41215011978385457+userId:41840354283324416',
-        //   copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
-        // },
-      },
-    ],
     async function tailwindcssPlugin() {
       return {
         name: 'docusaurus-tailwindcss',
@@ -289,7 +193,7 @@ Love what you do and do what you love.
       tagName: 'meta',
       attributes: {
         name: 'description',
-        content: 'Leyla的个人博客',
+        content: 'Leyla的技术笔记',
       },
     },
   ],

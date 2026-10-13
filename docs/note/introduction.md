@@ -1,6 +1,6 @@
 ---
 id: introduction
-slug: /note
+slug: /
 title: 技术笔记
 keywords:
   - Web
