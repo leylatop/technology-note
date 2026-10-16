@@ -17,6 +17,10 @@ const config: Config = {
       '是一个由Leyla创建的技术笔记网站，主要记录编程开发知识，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
   },
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+      respectPrefersColorScheme: false,
+    },
     // announcementBar: {
     //   id: 'announcementBar-3',
     //   content: ``,

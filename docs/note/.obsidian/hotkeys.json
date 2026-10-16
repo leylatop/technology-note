@@ -21,14 +21,6 @@
       "key": "I"
     }
   ],
-  "app:toggle-left-sidebar": [
-    {
-      "modifiers": [
-        "Ctrl"
-      ],
-      "key": "C"
-    }
-  ],
   "editor:toggle-strikethrough": [
     {
       "modifiers": [
